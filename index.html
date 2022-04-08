@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- файлы стилей -->
+    <link rel="stylesheet" href="css/null.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <meta name="viewport" content="width=1020"> -->
+    <title>Lesson 15</title>
+</head>
+
+<body class="body">
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <!-- HEADER -->
+        <header class="header"></header>
+        <!-- MAIN -->
+        <main class="main">
+            <!-- OUR PROMISE FOR YOU -->
+            <div class="promise">
+                <div class="promise__container">
+                    <div class="promise__title title">
+                        <div class="title__subtitle">OUR PROMISE TO YOU</div>
+                        <div class="title__title">Sed perspiciatis omnis iste natus</div>
+                    </div>
+                    <div class="promise__columns columns">
+                        <!-- ПЕРВАЯ КОЛОНКА -->
+                        <div class="columns__item">
+                            <div class="columns__icon">
+                                <img class="columns__image" src="img/our_promise/love.svg" alt="love and care">
+                            </div>
+                            <div class="columns__information">
+                                <div class="columns__title title-items">24/7 Love & Care</div>
+                                <div class="columns__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                            </div>
+                        </div>
+                        <!-- ВТОРАЯ КОЛОНКА -->
+                        <div class="columns__item">
+                            <div class="columns__icon">
+                                <img class="columns__image" src="img/our_promise/veterinar.svg" alt="veterinar">
+                            </div>
+                            <div class="columns__information">
+                                <div class="columns__title title-items">On-site Veterinarian</div>
+                                <div class="columns__text text-items">Dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</div>
+                            </div>
+                        </div>
+                        <!-- ТРЕТЬЯ КОЛОНКА -->
+                        <div class="columns__item">
+                            <div class="columns__icon">
+                                <img class="columns__image" src="img/our_promise/stream.svg" alt="stream">
+                            </div>
+                            <div class="columns__information">
+                                <div class="columns__title title-items">Live-stream Cameras</div>
+                                <div class="columns__text text-items">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur illum.</div>
+                            </div>
+                        </div>
+                        <!-- ТЕСТОВАЯ ЧЕТВЕРТАЯ КОЛОНКА -->
+                        <div class="columns__item">
+                            <div class="columns__icon">
+                                <img class="columns__image" src="img/our_promise/stream.svg" alt="stream">
+                            </div>
+                            <div class="columns__information">
+                                <div class="columns__title title-items">Live-stream Cameras</div>
+                                <div class="columns__text text-items">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur illum.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- МОЙ КОММЕНТАРИЙ -->
+                    <div class="promise__explanation">
+                        <p class="promise__text">Внимание! Мои решения не претендуют на истинность. Просто эксперментирую. Я не стал делать варианты, которые показывал Жека, так как изучал их до этого и знаю, в принципе, как они работают. В данный момент, я бы хотел обсудить с теми, кто прошел этот урок, эти варианты и найти их слабые места. Здесь не реализованы все фишки адаптива, так как его мы еще "не проходили".</p>
+
+                        <p class="promise__text">Итак! Этот вариант отличается от примеров из урока. Так, например, я прописал вертикальные и горизонтальные отступы (gap: 24px 24px;). На мой взгляд, это очень удобно. В "проверке домашек" мне сказали, что gap еще не всеми поддерживается. Однако в уроке Жека использовал его для отступов между картинкой и инфо-блоком. Горизонтальный gap появляется только в том случае, когда колонки начинаются переходит но новую строку (flex-wrap: wrap;).</p>
+
+                        <p class="promise__text">В уроках стояла проблема, что gap мешает назначать флекс-элементам ширину в 33,333%. Я сделал это иначе. Если контейнер имеет ширину в пикселях (макс 1020), то почему бы не назначить колонкам ширину в пикселях. Тем более если это "базовый размер (не фексированный)". И проценты не архиважны, так как контейнер не увеличится больше 1020, даже если сайт открыть на монитеро в 4К</p>
+
+                        <p class="promise__text">
+                            Итак: стиль для колонки (flex: 1 0 246px;). 246 пикселей это размер, меньше которого текст уже сильно ломается (строки становятся узкие). То есть это минимальный размер. Ноликом мы запретили уменьшатсья сверх этого размера. Однако, колонке мы даем разрешение увеличится, и она увеличивается самостоятельно до 33,333%. Три колонки сами делят ширину в 100% на 33,333% с помощью увеличения.
+                        </p>
+
+                        <p class="promise__text">В случае, когда срабатывает (flex-wrap: wrap;), колонка, которая переходит на новую строку, расширяется на всю допустимую ширину (100%). Чтобы этого не произошло, я использовал (max-width: 324px;). Это ширина колонки по дизайн проекту в фигме. Четвертая колона тут для наглядности</p>
+
+                        <p class="promise__text">Скорей всего, тут есть слабые месте, но так как глаз уже замылился, я их не вижу. Колонки классно резиняться, и код довольно простой.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMPACT -->
+            <div class="impact">
+                <div class="impact__container">
+                    <!-- ВЕРХ -->
+                    <div class="impact__top">
+                        <div class="impact__title title">
+                            <div class="title__subtitle title__subtitle_white">OUR IMPACT</div>
+                            <div class="title__title title__title_white">Nemo enim ipsam voluptatem quia voluptas</div>
+                        </div>
+                        <div class="impact__dog-image">
+                            <img class="impact__image" src="img/impact/dog.jpg" alt="dog">
+                        </div>
+                    </div>
+                    <!-- НИЗ -->
+                    <div class="impact__bottom bottom-impact">
+                        <!-- ПЕРВАЯ КАРТОЧКА -->
+                        <div class="bottom-impact__item">
+                            <div class="bottom-impact__icon">
+                                <img class="bottop-impact__image" src="img/impact/dug.svg" alt="dug">
+                            </div>
+                            <div class="bottom-impact__statistic">
+                                <div class="bottom-impact__nubers">3,700</div>
+                                <div class="bottom-impact__text">puppy baths</div>
+                            </div>
+                        </div>
+                        <!-- ВТОРАЯ КАРТОЧКА -->
+                        <div class="bottom-impact__item">
+                            <div class="bottom-impact__icon">
+                                <img class="bottop-impact__image" src="img/impact/home.svg" alt="home">
+                            </div>
+                            <div class="bottom-impact__statistic">
+                                <div class="bottom-impact__nubers">4,500</div>
+                                <div class="bottom-impact__text">dogs boarded</div>
+                            </div>
+                        </div>
+                        <!-- ТРЕТЬЯ КАРТОЧКА -->
+                        <div class="bottom-impact__item">
+                            <div class="bottom-impact__icon">
+                                <img class="bottop-impact__image" src="img/impact/cleaner.svg" alt="cleaner">
+                            </div>
+                            <div class="bottom-impact__statistic">
+                                <div class="bottom-impact__nubers">2,900</div>
+                                <div class="bottom-impact__text">pups trained</div>
+                            </div>
+                        </div>
+                        <!-- ЧЕТВЕРТАЯ КАРТОЧКА -->
+                        <div class="bottom-impact__item">
+                            <div class="bottom-impact__icon">
+                                <img class="bottop-impact__image" src="img/impact/milk.svg" alt="milk">
+                            </div>
+                            <div class="bottom-impact__statistic">
+                                <div class="bottom-impact__nubers">12k+</div>
+                                <div class="bottom-impact__text">meals served</div>
+                            </div>
+                        </div>
+                        <!-- ПЯТАЯ ТЕСТОВАЯ КАРТОЧКА -->
+                        <div class="bottom-impact__item">
+                            <div class="bottom-impact__icon">
+                                <img class="bottop-impact__image" src="img/impact/milk.svg" alt="milk">
+                            </div>
+                            <div class="bottom-impact__statistic">
+                                <div class="bottom-impact__nubers">12k+</div>
+                                <div class="bottom-impact__text">meals served</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- МОЙ КОММЕНТАРИЙ -->
+                    <div class="promise__explanation">
+                        <p class="promise__text">Верх блока я разделил на левую и правую часть. Жека делил их по 50% (насколько я помню), но я задал размеры тайтлу и фотографии собаки по проекту из фигмы. НО! не в пикселях, а в процентах. Тайтл (flex: 0 0 40.294%;). Фото с собакой (flex: 0 0 48.823%;). Считай ширины объектам заданы, и ничего писать больше не надо. А проценты позволяются им уменьшаться при изменении ширины контейнера. </p>
+
+                        <p class="promise__text">Тайтл и фото я раскидал с помощью (justify-content: space-between;). И они разлетелись по углам, как это требует дизайн проект. Жека говорил, что space-between при сужении может исчезнуть полность и не останется страховочного отступа. Но! есть (gap). Он появляется, когда space-between исчерпан!!! Вернее gap есть всегда, но когда приходит время, он не дает объектам соприкоснутья. Он не плюсуется к space-between. Он существует в нем. Так же можно назначить горизонтальный (gap) на случай, когда сработает (wrap). Но это уже тема адаптива. К примеру, когда собака переходит на следующую строку при (wrap), она наезжает на тайтл из за отрицательного margin. Тут уже надо с медиазапросами решать проблему</p>
+
+                        <p class="promise__text">
+                            Нижнюю часть с иконками я сделал по тому же принципу, что и колонки в первом блоке (OUR PROMISE TO YOU). Задал базовый размер в пикселях (минимальный). По его достижению, элемент перестает умеьшаться и переходит на новую строку. И отдельной строкой задал максимальный размер, чтобы при переходе на новую строку, обьект не расширялся на всю ширину родителя.
+                        </p>
+
+                        <p class="promise__text">
+                            Опять же, я использовал gap для отсупов. Вертикальные и горизовантальные. Снова встает вопрос о поддержке gap браузерами. Но если мы используем его для отступа между картинкой и текстом, почему бы не использовать его в других местах.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CERVICES -->
+            <div class="services">
+                <div class="services__container">
+                    <div class="services__title title">
+                        <div class="title__subtitle">Our Services</div>
+                        <div class="title__title">Sed perspiciatis omnis iste natus</div>
+                    </div>
+                    <div class="services__items item-services">
+                        <!-- ПЕРВАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/bed.svg" alt="bed">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas. </div>
+                        </div>
+                        <!-- ВТОРАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/dog.svg" alt="dog">
+                            </div>
+                            <div class="item-services__title title-items">Pet Daycare</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ТРЕТЬЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/shower.svg" alt="dog in shower">
+                            </div>
+                            <div class="item-services__title title-items">Pet Day Spa & Grooming</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ЧЕТВЕРТАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/bowl.svg" alt="bowl">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ПЯТАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/cup.svg" alt="cup">
+                            </div>
+                            <div class="item-services__title title-items">Pet Training</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ШЕСТАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/medal.svg" alt="medal">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas. </div>
+                        </div>
+                        <!-- СЕДЬМАЯ ТЕСТОВАЯ КАРТОЧКА -->
+                        <div class="item-services__item">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/medal.svg" alt="medal">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                    </div>
+                    <a class="item-services__button" href="#">Learn More</a>
+                    <!-- МОЙ КОММЕНТАРИЙ -->
+                    <div class="promise__explanation promise__explanation_last">
+                        <p class="promise__text"> Я снова использвал gap между карточками для отступов. Но для базового размера элементов задействовал в этот раз не пиксели, а проценты. Использовать 33,333% затруднительно вместе с gap, поэтому я прописал 30% и позволил увеличиваться (flex: 1 0 30%;). Это позволяет набрать недостоющие проценты.</p>
+
+                        <p class="promise__text">Проценты не позволяют назначить минимальный размер в этой же строке стиля (flex: 1 0 30%;). Пэтому я назначил минимальный размер отдельной строкой (min-width: 279px). Минимальный размер нужен, чтобы при сужении, текст не превратился в фиг знает что. При этом возникает проблема - нельзя настроить максимальный размер. И если влепить седьмую колонку, она расширяется на всю ширину родителя. Визуально это не критично. Но возможно, кому то это не понравится.</p>
+                    </div>
+                    <div class="services__items item-services">
+                        <!-- ПЕРВАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/bed.svg" alt="bed">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas. </div>
+                        </div>
+                        <!-- ВТОРАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/dog.svg" alt="dog">
+                            </div>
+                            <div class="item-services__title title-items">Pet Daycare</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ТРЕТЬЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/shower.svg" alt="dog in shower">
+                            </div>
+                            <div class="item-services__title title-items">Pet Day Spa & Grooming</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ЧЕТВЕРТАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/bowl.svg" alt="bowl">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ПЯТАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/cup.svg" alt="cup">
+                            </div>
+                            <div class="item-services__title title-items">Pet Training</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                        <!-- ШЕСТАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/medal.svg" alt="medal">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas. </div>
+                        </div>
+                        <!-- СЕДЬМАЯ ТЕСТОВАЯ КАРТОЧКА -->
+                        <div class="item-services__item item-services__item_pixels">
+                            <div class="item-services__icon">
+                                <img class="item-services__image" src="img/our_services/medal.svg" alt="medal">
+                            </div>
+                            <div class="item-services__title title-items">Pet Boarding (No Cages)</div>
+                            <div class="item-services__text text-items">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                        </div>
+                    </div>
+                    <!-- МОЙ КОММЕНТАРИЙ -->
+                    <div class="promise__explanation">
+                        <p class="promise__text"> Это вариант с пикселями в базовом размере (flex: 1 0 279px;). Он играет роль минимального размера, так как мы запретили элементу уменьшаться. Но разрешили увеличиваться, поэтому блоки распределяются между собой пространство в 100% не считая отступы gap</p>
+
+                        <p class="promise__text">Здесь мы уже можем использовать максимальный размер отдельной строкой (max-width: 324px;). Это размер по дизайн проекту из фигмы. Если появится допольнительный элемент с новой строки, то он уже не будет принимать ширину родителя, а будет таким, как и остальные карточки</p>
+
+                        <p class="promise__text">Минус этого варианта в том, что при сужении, элементы не так красиво резинятся. Это из за (max-width: 324px;). Если не задавать максимальный размер, то между вариантом с процентами и пикселями, в принципе, не будет.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+        </footer>
+    </div>
+</body>
+
+</html>
